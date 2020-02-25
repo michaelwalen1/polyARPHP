@@ -18,7 +18,7 @@
 			
 			
 			if ($connection === false) {
-				die("Connection Faileddjfldjf: " . sqlsrv_errors());
+				die(print_r("Connection Failed: " . sqlsrv_errors()));
 			}
 			
 			$sql = "SELECT thing FROM testAssets WHERE location=" . $locationID . " AND tourType=" . $tourType;
