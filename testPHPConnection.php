@@ -5,7 +5,12 @@
 	<body>
 		
 		<?php
-			echo "hi";
+			
+			if( sqlsrv_configure("WarningsReturnAsErrors", 0) === false)  {  
+				DisplayErrors();  
+				die;  
+			} 
+		
 			// SQL Server Extension Sample Code:
 			$connectionInfo = array("UID" => "testPolyAR", "pwd" => "{your_password_here}", "Database" => "testAzureSQL", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 			$serverName = "tcp:testtestserver.database.windows.net,1433";
@@ -25,6 +30,7 @@
 			}*/
 			
 			if ($connection === false) {
+				DisplayErrors();
 				die("Connection failed");
 			}
 			
