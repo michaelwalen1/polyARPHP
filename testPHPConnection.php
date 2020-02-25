@@ -18,9 +18,15 @@
 			
 			
 			if ($connection === false) {
-				//die("Connection failed: " . sqlsrv_errors());
-				$errors = sqlrsv_errors();
-				echo $errors;
+				if (($errors = sqlrv_errors()) != NULL) {
+					foreach( $errors as $error ) {
+					    echo "SQLSTATE: ".$error[ 'SQLSTATE']."<br />";
+					    echo "code: ".$error[ 'code']."<br />";
+					    echo "message: ".$error[ 'message']."<br />";
+					}
+				}
+				
+				die("Connection failed");
 			}
 			
 			$sql = "SELECT thing FROM testAssets WHERE location=" . $locationID . " AND tourType=" . $tourType;
