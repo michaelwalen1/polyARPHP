@@ -3,7 +3,7 @@
 
 	</head>
 	<body>
-		hello
+		
 		<?php
 			
 			// SQL Server Extension Sample Code:
@@ -18,7 +18,7 @@
 			
 			
 			if ($connection === false) {
-				die("Connection Failed: " . sqlsrv_errors());
+				die("Connection Faileddjfldjf: " . sqlsrv_errors());
 			}
 			
 			$sql = "SELECT thing FROM testAssets WHERE location=" . $locationID . " AND tourType=" . $tourType;
