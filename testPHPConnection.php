@@ -5,14 +5,9 @@
 	<body>
 		
 		<?php
-			
-			if( sqlsrv_configure("WarningsReturnAsErrors", 0) === false)  {  
-				DisplayErrors();  
-				die;  
-			} 
 		
 			// SQL Server Extension Sample Code:
-			$connectionInfo = array("UID" => "testPolyAR", "pwd" => "{your_password_here}", "Database" => "testAzureSQL", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+			$connectionInfo = array("UID" => "testPolyAR", "pwd" => "polypassword2?", "Database" => "testAzureSQL", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 			$serverName = "tcp:testtestserver.database.windows.net,1433";
 			$connection = sqlsrv_connect($serverName, $connectionInfo);
 			
@@ -21,16 +16,14 @@
 			$locationID = 1002;
 			$tourType = 0;
 			
-			/*if (($errors = sqlrv_errors()) != NULL) {
-				foreach( $errors as $error ) {
-				    echo "SQLSTATE: ".$error[ 'SQLSTATE']."<br />";
-				    echo "code: ".$error[ 'code']."<br />";
-				    echo "message: ".$error[ 'message']."<br />";
-				}
-			}*/
-			
 			if ($connection === false) {
-				DisplayErrors();
+				if (($errors = sqlrv_errors()) != NULL) {
+					foreach( $errors as $error ) {
+					    echo "SQLSTATE: ".$error[ 'SQLSTATE']."<br />";
+					    echo "code: ".$error[ 'code']."<br />";
+					    echo "message: ".$error[ 'message']."<br />";
+					}
+				}
 				die("Connection failed");
 			}
 			
