@@ -10,7 +10,7 @@
 			$serverName = "tcp:testtestserver.database.windows.net,1433";
 			$connection = sqlsrv_connect($serverName, $connectionInfo);
 			
-			$locationID = $_POST["location"];
+			$locationID = $_POST["locationID"];
 			$tourType = $_POST["tourType"];
 			//$locationID = 1002;
 			//$tourType = 0;
