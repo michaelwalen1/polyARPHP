@@ -5,6 +5,7 @@
 	<body>
 		
 		<?php
+			echo phpinfo();
 			// SQL Server Extension Sample Code:
 			$connectionInfo = array("UID" => "testPolyAR", "pwd" => "polypassword2?", "Database" => "testAzureSQL", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 			$serverName = "tcp:testtestserver.database.windows.net,1433";
