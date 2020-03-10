@@ -5,7 +5,6 @@
 	<body>
 		
 		<?php
-		
 			// SQL Server Extension Sample Code:
 			$connectionInfo = array("UID" => "testPolyAR", "pwd" => "polypassword2?", "Database" => "testAzureSQL", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 			$serverName = "tcp:testtestserver.database.windows.net,1433";
@@ -16,15 +15,16 @@
 			$locationID = 1002;
 			$tourType = 0;
 			
+			
 			if ($connection === false) {
-				if (($errors = sqlrv_errors()) != NULL) {
+				if (($errors = sqlsrv_errors()) != NULL) {
 					foreach( $errors as $error ) {
-					    echo "SQLSTATE: ".$error[ 'SQLSTATE']."<br />";
-					    echo "code: ".$error[ 'code']."<br />";
-					    echo "message: ".$error[ 'message']."<br />";
+						echo "SQLSTATE: ".$error[ 'SQLSTATE']."<br />";
+				    	echo "code: ".$error[ 'code']."<br />";
+				    	echo "message: ".$error[ 'message']."<br />";
 					}
 				}
-				die("Connection failed");
+				die("Connection Failed");
 			}
 			
 			$sql = "SELECT thing FROM testAssets WHERE location=" . $locationID . " AND tourType=" . $tourType;
